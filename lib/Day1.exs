@@ -1,30 +1,32 @@
 defmodule AdventOfCode.Day1 do
   def solve do
-    readFile()
-    |> getNumbers()
-    |> getCalibrationValues()
-    |> computeCalibrations()
+    read_input()
+    |> get_numbers()
+    |> get_calibration_values()
+    |> sum_calibration_values()
   end
 
-  def readFile do
-    case File.read(File.cwd!() <> "/assets/day-1-input.txt") do
+  def read_input do
+    file_path = File.cwd!() <>"/assets/day-1-input.txt"
+
+    case File.read(file_path) do
       {:ok, content} -> content
       {:error, :enoent} -> "Error!"
     end
   end
 
-  def getNumbers(content) do
+  def get_numbers(content) do
     String.split(content, "\n")
     |> Enum.map(&String.graphemes/1)
     |> Enum.map(&Enum.filter(&1, fn char -> Regex.match?(~r/^\d+$/, char) end))
   end
 
-  def getCalibrationValues(lineOfNumbers) do
-    lineOfNumbers
+  def get_calibration_values(line_of_numbers) do
+    line_of_numbers
     |> Enum.map(&String.to_integer(Enum.at(&1, 0, "0") <> Enum.at(&1, -1, "0")))
   end
 
-  def computeCalibrations(calibrations) do
+  def sum_calibration_values(calibrations) do
     Enum.sum(calibrations)
   end
 end
