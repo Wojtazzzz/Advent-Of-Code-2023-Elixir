@@ -7,7 +7,7 @@ defmodule AdventOfCode.Day1 do
   end
 
   def read_input do
-    file_path = File.cwd!() <>"/assets/day-1-input.txt"
+    file_path = File.cwd!() <> "/assets/day-1-input.txt"
 
     case File.read(file_path) do
       {:ok, content} -> content
@@ -31,4 +31,4 @@ defmodule AdventOfCode.Day1 do
   end
 end
 
-IO.inspect AdventOfCode.Day1.solve()
+IO.inspect(AdventOfCode.Day1.solve())
