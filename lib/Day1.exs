@@ -20,11 +20,14 @@ defmodule AdventOfCode.Day1 do
   end
 
   defp read_input do
-    file_path = File.cwd!() <> "/assets/day-1-input.txt"
+    file_path = File.cwd!() <> "/saassets/day-1-input.txt"
 
     case File.read(file_path) do
-      {:ok, content} -> content
-      {:error, :enoent} -> "Error!"
+      {:ok, content} ->
+        content
+
+      {:error, :enoent} ->
+        raise "Something went wrong! I couldn't find your file under: " <> file_path
     end
   end
 
