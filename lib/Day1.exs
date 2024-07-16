@@ -22,8 +22,7 @@ defmodule AdventOfCode.Day1 do
   end
 
   def get_calibration_values(line_of_numbers) do
-    line_of_numbers
-    |> Enum.map(&String.to_integer(Enum.at(&1, 0, "0") <> Enum.at(&1, -1, "0")))
+    Enum.map(line_of_numbers, &String.to_integer(Enum.at(&1, 0, "0") <> Enum.at(&1, -1, "0")))
   end
 
   def sum_calibration_values(calibrations) do
