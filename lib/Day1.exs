@@ -1,4 +1,17 @@
 defmodule AdventOfCode.Day1 do
+  @moduledoc """
+  Module for Day 1
+  https://adventofcode.com/2023/day/1
+  """
+
+  @doc """
+  Script entrance.
+
+  Returns `number()`.
+
+  ## Examples
+      > elixir lib/Day1.exs
+  """
   def solve do
     read_input()
     |> get_numbers()
