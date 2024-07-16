@@ -19,7 +19,7 @@ defmodule AdventOfCode.Day1 do
     |> sum_calibration_values()
   end
 
-  def read_input do
+  defp read_input do
     file_path = File.cwd!() <> "/assets/day-1-input.txt"
 
     case File.read(file_path) do
@@ -28,17 +28,17 @@ defmodule AdventOfCode.Day1 do
     end
   end
 
-  def get_numbers(content) do
+  defp get_numbers(content) do
     String.split(content, "\n")
     |> Enum.map(&String.graphemes/1)
     |> Enum.map(&Enum.filter(&1, fn char -> Regex.match?(~r/^\d+$/, char) end))
   end
 
-  def get_calibration_values(line_of_numbers) do
+  defp get_calibration_values(line_of_numbers) do
     Enum.map(line_of_numbers, &String.to_integer(Enum.at(&1, 0, "0") <> Enum.at(&1, -1, "0")))
   end
 
-  def sum_calibration_values(calibrations) do
+  defp sum_calibration_values(calibrations) do
     Enum.sum(calibrations)
   end
 end
